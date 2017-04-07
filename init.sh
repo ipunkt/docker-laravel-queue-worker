@@ -1,8 +1,7 @@
 #!/bin/sh
 
 if [ -z "$CONNECTION" ]; then
-	echo "Missing environment variable: CONNECTION"
-	exit 1
+	CONNECTION="default"
 fi
 
 if [ -Z "$QUEUE" ]; then
@@ -15,8 +14,4 @@ sed -e "s~%%CONNECTION%%~$CONNECTION~" \
 
 rm /etc/supervisor/conf.d/laravel-worker.conf.tpl
 
-# Debugging purpose
-#cat /etc/supervisor/supervisord.conf
-
 supervisord --nodaemon --configuration /etc/supervisor/supervisord.conf
-
