@@ -1,17 +1,15 @@
 #!/bin/sh
 
-if [ -z "$CONNECTION" ]; then
-	CONNECTION="default"
+if [ -z "$QUEUE_CONNECTION" ]; then
+	QUEUE_CONNECTION="redis"
 fi
 
-if [ -Z "$QUEUE" ]; then
-	QUEUE="default"
+if [ -z "$QUEUE_NAME" ]; then
+	QUEUE_NAME="default"
 fi
 
-sed -e "s~%%CONNECTION%%~$CONNECTION~" \
-	-e "s~%%QUEUE%%~$QUEUE~" \
+sed -e "s~%%QUEUE_CONNECTION%%~$QUEUE_CONNECTION~" \
+	-e "s~%%QUEUE_NAME%%~$QUEUE_NAME~" \
 	/etc/supervisor/conf.d/laravel-worker.conf.tpl > /etc/supervisor/supervisord.conf
-
-#rm /etc/supervisor/conf.d/laravel-worker.conf.tpl
 
 supervisord --nodaemon --configuration /etc/supervisor/supervisord.conf

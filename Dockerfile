@@ -6,8 +6,11 @@ ENV PYTHON_VERSION=2.7.12-r0
 ENV PY_PIP_VERSION=8.1.2-r0
 ENV SUPERVISOR_VERSION=3.3.1
 
-ENV CONNECTION=default
-ENV QUEUE=default
+ENV QUEUE_CONNECTION=redis
+ENV QUEUE_NAME=default
+
+# Install pdo if you want to use database queue
+RUN docker-php-ext-install pdo pdo_mysql
 
 # Install supervisor
 RUN apk update && apk add -u python=$PYTHON_VERSION py-pip=$PY_PIP_VERSION
