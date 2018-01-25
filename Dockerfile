@@ -1,8 +1,9 @@
 FROM php:7.1-alpine
 
-LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>"
-LABEL version="php7.1-v2.0"
-LABEL description="A supervisor configured to run with laravel artisan queue:work or artisan horizon command"
+LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>" \
+		version.image="v2.0" \
+		version.php=$PHP_VERSION \
+		description="A supervisor configured to run with laravel artisan queue:work or artisan horizon command"
 
 ENV PYTHON_VERSION=2.7.12-r0
 ENV PY_PIP_VERSION=8.1.2-r0
