@@ -1,12 +1,12 @@
-FROM php:7.1-alpine
+FROM php:7.2-alpine
 
 LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>" \
 		version.image="v2.0" \
 		version.php=$PHP_VERSION \
 		description="A supervisor configured to run with laravel artisan queue:work or artisan horizon command"
 
-ENV PYTHON_VERSION=2.7.12-r0
-ENV PY_PIP_VERSION=8.1.2-r0
+ENV PYTHON_VERSION=2.7.13-r1
+ENV PY_PIP_VERSION=9.0.1-r1
 ENV SUPERVISOR_VERSION=3.3.3
 
 ENV QUEUE_CONNECTION=redis
