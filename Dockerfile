@@ -1,7 +1,7 @@
 FROM php:7.2-alpine
 
 LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>" \
-		version.image="v2.0" \
+		version.image="v3.0" \
 		version.php=$PHP_VERSION \
 		description="A supervisor configured to run with laravel artisan queue:work or artisan horizon command"
 
