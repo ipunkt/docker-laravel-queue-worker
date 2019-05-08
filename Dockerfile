@@ -1,7 +1,7 @@
 FROM php:7.3-alpine
 
 LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>" \
-		version.image="v4.0" \
+		version.image="v4.1" \
 		version.php=$PHP_VERSION \
 		description="A supervisor configured to run with laravel artisan queue:work or artisan horizon command"
 
@@ -19,6 +19,7 @@ WORKDIR /etc/supervisor/conf.d
 # Use local configuration
 COPY laravel-worker.conf.tpl /etc/supervisor/conf.d/laravel-worker.conf.tpl
 COPY laravel-horizon.conf.tpl /etc/supervisor/conf.d/laravel-horizon.conf.tpl
+COPY custom-php.ini.tpl /opt/etc/custom-php.ini.tpl
 
 # Copy scripts
 COPY init.sh /usr/local/bin/init.sh
