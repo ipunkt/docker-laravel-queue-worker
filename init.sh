@@ -24,9 +24,7 @@ if [ "$LARAVEL_HORIZON" = false ]; then
 fi
 
 if [ "$LARAVEL_HORIZON" = true ]; then
-	sed -e "s~%%QUEUE_CONNECTION%%~$QUEUE_CONNECTION~" \
-		-e "s~%%QUEUE_NAME%%~$QUEUE_NAME~" \
-		/etc/supervisor/conf.d/laravel-horizon.conf.tpl > /etc/supervisor/supervisord.conf
+	cp /etc/supervisor/conf.d/laravel-horizon.conf.tpl /etc/supervisor/supervisord.conf
 fi
 
 supervisord --nodaemon --configuration /etc/supervisor/supervisord.conf
