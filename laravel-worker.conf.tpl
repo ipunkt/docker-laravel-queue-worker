@@ -12,7 +12,3 @@ numprocs=1
 startretries=10
 stdout_events_enabled=1
 redirect_stderr=true
-
-[eventlistener:supervisord-watchdog]
-command=/usr/local/bin/supervisord-watchdog
-events=PROCESS_STATE_FATAL
