@@ -10,7 +10,7 @@ ENV QUEUE_NAME=default
 ENV LARAVEL_HORIZON=false
 
 # Install pdo if you want to use database queue and install supervisor
-RUN docker-php-ext-install pdo pdo_mysql pcntl posix \
+RUN docker-php-ext-install bcmath pdo pdo_mysql pcntl posix \
 	&& apk add --update supervisor && rm -rf /tmp/* /var/cache/apk/*
 
 # Define working directory
