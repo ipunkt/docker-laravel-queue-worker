@@ -20,7 +20,7 @@ WORKDIR /etc/supervisor/conf.d
 COPY laravel-worker.conf.tpl /etc/supervisor/conf.d/laravel-worker.conf.tpl
 COPY laravel-horizon.conf.tpl /etc/supervisor/conf.d/laravel-horizon.conf.tpl
 COPY custom-php.ini.tpl /opt/etc/custom-php.ini.tpl
-COPY supervisor-watchdog.py /opt/supervisor-watchdog.py
+COPY supervisord-watchdog.py /opt/supervisord-watchdog.py
 
 # Copy scripts
 COPY init.sh /usr/local/bin/init.sh
