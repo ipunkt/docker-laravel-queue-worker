@@ -27,4 +27,4 @@ if [ "$LARAVEL_HORIZON" = true ]; then
 	cp /etc/supervisor/conf.d/laravel-horizon.conf.tpl /etc/supervisor/supervisord.conf
 fi
 
-supervisord --nodaemon --configuration /etc/supervisor/supervisord.conf
+exec supervisord --nodaemon --configuration /etc/supervisor/supervisord.conf
