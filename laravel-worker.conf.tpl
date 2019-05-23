@@ -1,5 +1,6 @@
 [supervisord]
 nodaemon=true
+user=root
 logfile=/dev/stdout
 logfile_maxbytes=0
 
