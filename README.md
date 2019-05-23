@@ -23,4 +23,13 @@ For Laravel Horizon you have to configure your memory limit in your `horizon.php
 | 7.1 | ipunktbs/laravel-queue-worker:php7.1-v2.0 |
 | 7.2 | ipunktbs/laravel-queue-worker:php7.2-v3.0 |
 | 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.0 - deprecated |
-| 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.1 - recommended |
+| 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.1 |
+| 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.2 - recommended |
+
+### Changelog
+
+#### v4.2
+
+Added:
+- bcmath extension for php (to support [Laravel Telescope](https://laravel.com/docs/telescope) as well)
+- watchdog for supervisord to let the container restart when some of the programs died
