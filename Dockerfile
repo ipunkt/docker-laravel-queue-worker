@@ -1,7 +1,7 @@
 FROM php:7.3-alpine
 
 LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>" \
-		version.image="v4.2" \
+		version.image="v4.3" \
 		version.php=$PHP_VERSION \
 		description="A supervisor configured to run with laravel artisan queue:work or artisan horizon command"
 
@@ -11,6 +11,7 @@ ENV LARAVEL_HORIZON=false
 
 # Install pdo if you want to use database queue and install supervisor
 RUN docker-php-ext-install bcmath pdo pdo_mysql pcntl posix \
+	&& pecl install amqp && docker-php-ext-enable amqp \
 	&& apk add --update supervisor && rm -rf /tmp/* /var/cache/apk/*
 
 # Define working directory
