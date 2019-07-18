@@ -25,7 +25,8 @@ For Laravel Horizon you have to configure your memory limit in your `horizon.php
 | 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.0 - deprecated |
 | 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.1 |
 | 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.2 |
-| 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.3 - recommended |
+| 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.3 |
+| 7.3 | ipunktbs/laravel-queue-worker:php7.3-v4.4 - recommended |
 
 ### Changelog
 
