@@ -30,6 +30,11 @@ For Laravel Horizon you have to configure your memory limit in your `horizon.php
 
 ### Changelog
 
+#### v4.4
+
+Added:
+- pcntl extension
+
 #### v4.3
 
 Added:
