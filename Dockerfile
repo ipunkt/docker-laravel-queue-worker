@@ -1,4 +1,4 @@
-FROM php:7.3-alpine
+FROM php:7.4-alpine
 
 LABEL maintainer="ipunkt Business Solutions <info@ipunkt.biz>" \
 		version.image="v4.4" \
@@ -10,8 +10,8 @@ ENV QUEUE_NAME=default
 ENV LARAVEL_HORIZON=false
 
 RUN apk add --no-cache coreutils sqlite-dev libxml2-dev curl-dev gmp-dev icu-dev libpng-dev jpeg-dev freetype-dev autoconf imagemagick-dev gcc libc-dev libzip-dev rabbitmq-c-dev make libtool \
-	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/freetype2 --with-jpeg-dir=/usr/include \
-	&& docker-php-ext-install -j$(nproc) bcmath pdo pdo_mysql pdo_sqlite mbstring json xml zip curl gmp intl gd soap sockets pcntl \
+	&& docker-php-ext-configure gd --with-freetype=/usr/include/freetype2 --with-jpeg=/usr/include \
+	&& docker-php-ext-install -j$(nproc) bcmath pdo pdo_mysql pdo_sqlite json xml zip curl gmp intl gd soap sockets pcntl \
 	&& pecl install imagick \
 	&& pecl install amqp \
 	&& docker-php-ext-enable imagick
@@ -23,7 +23,7 @@ RUN chmod +x /usr/local/bin/confd \
 	# Fix alpine iconv problems part 1
 	# See https://github.com/docker-library/php/issues/240
 	&& apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community gnu-libiconv \
-	&& docker-php-ext-enable bcmath pdo pdo_mysql pdo_sqlite mbstring json xml zip curl gmp intl gd imagick soap amqp sockets
+	&& docker-php-ext-enable bcmath pdo pdo_mysql pdo_sqlite json xml zip curl gmp intl gd imagick soap amqp sockets
 
 # Install pdo if you want to use database queue and install supervisor
 RUN apk add --update supervisor && rm -rf /tmp/* /var/cache/apk/*
