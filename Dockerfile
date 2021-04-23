@@ -14,7 +14,8 @@ RUN apk add --no-cache coreutils sqlite-dev libxml2-dev curl-dev gmp-dev icu-dev
 	&& docker-php-ext-install -j$(nproc) bcmath pdo pdo_mysql pdo_sqlite json xml zip curl gmp intl gd soap sockets pcntl \
 	&& pecl install imagick \
 	&& pecl install amqp \
-	&& docker-php-ext-enable imagick
+	&& pecl install redis \
+	&& docker-php-ext-enable imagick redis
 
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-linux-amd64 /usr/local/bin/confd
 
